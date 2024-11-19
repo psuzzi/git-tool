@@ -1,13 +1,42 @@
 {
   "name": "git-tool",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A multi-platform Git interface",
+  "main": "dist/main/main.js",
+  "type": "commonjs",
   "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "eslint -c .eslintrc.json ./src --ext .ts",
+    "start": "npm run build && electron .",
+    "dev": "concurrently \"npm:watch\" \"nodemon --watch dist --exec electron .\"",
+    "pack": "npm run build && electron-builder build --dir",
+    "dist": "npm run build && electron-builder build",
+    "postinstall": "electron-builder install-app-deps",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "build": {
+    "appId": "dev.algo.git-tool",
+    "productName": "Git Tool",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
   "keywords": [],
-  "author": "",
+  "author": "Patrik Suzzi",
   "license": "ISC",
   "devDependencies": {
     "@electron/rebuild": "^3.7.1",
@@ -24,7 +53,6 @@
   "dependencies": {
     "electron": "^33.2.0",
     "electron-builder": "^25.1.8",
-    "electron-is-dev": "^3.0.1",
     "electron-store": "^10.0.0"
   }
 }
