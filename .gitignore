@@ -1,0 +1,61 @@
+# Node.js specific
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# TypeScript specific
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# IDE-specific
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*.local
+
+# Tests
+coverage/
+*.lcov
+
+# Dependencies from package managers
+package-lock.json
+yarn.lock
+
+# Temporary files
+tmp/
+temp/
+
+# Optional
+# If you use eslint:
+.eslintcache
+
+# If you use prettier:
+.prettiercache
+
+# If you use parcel-bundler:
+.cache/
+
+# If you use storybook:
+.storybook/
+
+# Optional for TypeScript monorepo with Yarn workspaces
+# Ignore individual package node_modules if using root workspace node_modules
+**/node_modules/
